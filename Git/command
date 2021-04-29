@@ -1,0 +1,31 @@
+git init
+git remote add origin https://github.com/onmycode/boj_code.git // 로컬저장소와 원격저장소 연결
+git status
+git add . // 로컬폴더의 모든 파일을 add
+git reset // add 취소 명령
+git commit -m "[commit message]" 
+  // Author identity unknown 발생 해결법
+  // git config --global user.email "이메일주소"
+  // git config --global user.name "이름"
+  // 맨 처음에 한 번만 설정하면 됨 & 다시 git commit~
+git push origin main // commit을 main branch(default branch) 에 push 하는 명령어
+  // 주의 : git push origin master 을 하면 master라는 new branch가 생성되고 default branch에 반영이 안됨
+  // master가 노예제를 연상하는 단어라서 default branch의 이름이 main으로 변경되었기 때문
+  // git bash에선 master로 기본 checkout 되어 있어서 수동으로 변경하는 방법을 찾았다
+  // $ git checkout master // master branch로 이동(already on 'master')
+  // $ git branch -m master main // 로컬에서 master 이름을 main으로 변경(git bash에서 main으로 바뀐 것을 확인)
+  // $ git fetch // 서버(Github) 에서 최신 commit을 가져오는 명령 
+  // $ git branch --unset-upstream // origin/master와 연결 제거하는 명령
+        // fetal: Branch 'main' has no upstream informaion (그냥 넘어감..)
+  // $ git branch -u origin/main // origin/main 과 연결하는 명령
+  // $ git symbolic-ret refs/remotes/origin/HEAD refs/remotes/origin/main //default branch를 origin/main으로 업데이트하는 명령
+
+  // error: failed to push some refs to 'https://github.com/onmycode/boj_code.git'
+  // 깃허브 사이트를 통해 작업한 이력이 있기 때문
+  // git pull 명령어로 프로젝트를 병합해주면 된다.
+  // git pull 실행 시 fetal: refusing to merge unrelated histories 발생할 경우
+  // $ git pull origin [branch name] --allow-unrelated-histories 
+  // 명령옵션 '--allow-unrelated-histories' 은 이미 존재하는 두 프로젝트의 history를 저장하는 드문 상황에 사용된다.
+  // 즉, git에서는 서로 관련 기록이 없는 이질적인 두 프로젝트를 병합할 때 기본적으로 거부하는데, 이것을 허용해주는 것이다.
+  // create mode 100644 README.md 라는 메시지와 함께 해결되었다. 다시 git push origin main 실행하면 성공
+  
