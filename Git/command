@@ -29,3 +29,6 @@ git push origin main // commit을 main branch(default branch) 에 push 하는 �
   // 즉, git에서는 서로 관련 기록이 없는 이질적인 두 프로젝트를 병합할 때 기본적으로 거부하는데, 이것을 허용해주는 것이다.
   // create mode 100644 README.md 라는 메시지와 함께 해결되었다. 다시 git push origin main 실행하면 성공
   
+# git add 취소하기
+$ git reset // add된 모든 파일 취소
+$ git reset HEAD [filename] // 특정파일 취소
