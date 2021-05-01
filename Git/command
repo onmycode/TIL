@@ -1,3 +1,4 @@
+# git 시작하기
 git init
 git remote add origin https://github.com/onmycode/boj_code.git // 로컬저장소와 원격저장소 연결
 git status
@@ -32,3 +33,7 @@ git push origin main // commit을 main branch(default branch) 에 push 하는 �
 # git add 취소하기
 $ git reset // add된 모든 파일 취소
 $ git reset HEAD [filename] // 특정파일 취소
+
+## git clone 
+원격 저장소에 있는 폴더를 로컬로 가져오는 명령어. 현재 디렉토리에 Github의 저장소(repository)를 그대로 복사(clone) 해준다. 
+
