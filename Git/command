@@ -34,6 +34,13 @@ git push origin main // commit을 main branch(default branch) 에 push 하는 �
 $ git reset // add된 모든 파일 취소
 $ git reset HEAD [filename] // 특정파일 취소
 
-## git clone 
+# git clone 
 원격 저장소에 있는 폴더를 로컬로 가져오는 명령어. 현재 디렉토리에 Github의 저장소(repository)를 그대로 복사(clone) 해준다. 
 
+# git config --list
+설정이 잘 되었는지 확인하는 명령어
+init.defaultbranch=master
+user.email=
+user.name=onmycode
+  // $ git config --global init.defaultBranch main 를 실행하고 다시 git config --list하면
+  // init.defaultbranch=main 으로 바뀌어있다.
