@@ -44,3 +44,19 @@ user.email=
 user.name=onmycode
   // $ git config --global init.defaultBranch main 를 실행하고 다시 git config --list하면
   // init.defaultbranch=main 으로 바뀌어있다.
+
+# git pull과 git fetch의 차이
+git pull
+ : 원격 저장소로부터 필요한 파일을 다운 + 병합
+ : 로컬 브랜치와, 원격 저장소 origin/master 가 같은 위치를 가리킨다.
+git fetch
+ : 원격 저장소로부터 필요한 파일을 다운(병합은 따로 해야 함)
+ : 로컬 브랜치는 원래 가지고 있던 로컬 저장소의 최근 커밋 위치를 가리키고, 원격 저장소 origin/master는 가져온 최신 커밋을 가리킨다.
+ : 신중할 때 사용
+ : 사용하는 이유
+   - 원래 내용과 바뀐 내용과의 차이를 알 수 있다(git diff HEAD origin/master)
+   - commit이 얼마나 됐는지 알 수 있다(git log --decorate --all --online)
+   - 이런 세부 내용 확인 후 git merge origin/master 하면 git pull 상태와 같아진다.(병합 완료)
+pull과 fetch 후 git log --decorate -all 명령어를 통해 확인을 해보면,
+pull을 했을 때는 master(local 저장소)와 origin/master(원격저장소)가 같은 커밋을 가리킴
+fetch를 했을 때는 origin/master(원격저장소)가 master(local저장소)보다 커밋이 앞서있다. 왜냐하면 아직 local저장소에 merge하지 않은 상태.
